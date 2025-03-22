@@ -1,61 +1,61 @@
+// Module
 using System;
 using System.Drawing;
 using Robocode.TankRoyale.BotApi;
 using Robocode.TankRoyale.BotApi.Events;
 
-// ------------------------------------------------------------------
-// Kaze
-// ------------------------------------------------------------------
-// A bot that follows a square movement pattern along the arena walls.
-// It rotates near the walls and shifts inward and outward as it completes rotations.
-// In normal mode, it fires with different bullet types (small, medium, large)
-// based on the enemy's distance.
-// ------------------------------------------------------------------
+/* 
+------------------------------------------------------------------
+Kaze
+------------------------------------------------------------------
+A bot that follows a square movement pattern along the arena walls.
+It rotates near the walls and shifts inward and outward as it completes rotations.
+In normal mode, it fires with different bullet types (small, medium, large) based on the enemy's distance and relative energy, improving its chances of winning
+------------------------------------------------------------------
+Kaze da~
+*/
+
 public class Kaze : Bot
 {
-    // Movement parameters for the square pattern.
     private readonly double margin = 50;           // Margin for shifting inward/outward.
     private double nearWallDistance;               // Side length when moving near the wall.
     private double innerDistance;                  // Side length when moving inside.
     private bool nearWall = true;                  // Current mode: true = near wall, false = inner.
     private int segmentCount = 0;                  // Counts segments in the current rotation.
 
-    // Main method.
     static void Main(string[] args)
     {
         new Kaze().Start();
     }
 
-    // Constructor: load bot configuration.
     Kaze() : base(BotInfo.FromFile("Kaze.json")) { }
 
     public override void Run()
     {
-        // Set bot colors.
-        BodyColor = Color.Blue;
+        // Set-up colors
+        BodyColor = Color.DarkCyan;
         TurretColor = Color.DarkBlue;
         RadarColor = Color.Cyan;
         BulletColor = Color.White;
-        ScanColor = Color.Cyan;
+        ScanColor = Color.DarkRed;
 
-        // Compute movement distances based on the arena dimensions.
+        // Movement
         nearWallDistance = Math.Min(ArenaWidth, ArenaHeight) - margin;
         innerDistance = nearWallDistance - 2 * margin;
 
-        // Position the bot near the wall.
+        // Buat bot di dekat arena wall
         TurnRight(Direction % 90);
         Forward(nearWallDistance);
 
-        // Main loop.
         while (IsRunning)
         {
-            // Normal mode: follow the square movement pattern.
+            // Square pattern
             double currentDistance = nearWall ? nearWallDistance : innerDistance;
             Forward(currentDistance);
             TurnRight(90);
             segmentCount++;
 
-            // After completing one full rotation (4 segments):
+            // Full rotation (4 segments) completed.
             if (segmentCount >= 4)
             {
                 if (nearWall)
@@ -74,34 +74,45 @@ public class Kaze : Bot
                 }
                 segmentCount = 0;
             }
-            // Continue scanning while moving.
             Rescan();
         }
     }
 
-    // Event: When another bot is scanned.
+    // Musuh terlihat
     public override void OnScannedBot(ScannedBotEvent e)
     {
-        // Hitung jarak ke musuh.
         double distance = DistanceTo(e.X, e.Y);
-        double bulletPower;
+        double bulletPower = 1;
 
-        // Greedy bullet selection based on jarak:
-        // - Jika sangat dekat (<150), gunakan peluru besar.
-        // - Jika jauh (>250), gunakan peluru kecil.
-        // - Lainnya, gunakan peluru sedang.
-
-        if (distance < 150)
+        //    - Kalau deket banget (< 100 jarak), high-power bullet (type 3).
+        //    - Kalau cukup deket (< 200 jarak), use medium-power bullet (type 2).
+        //    - Kalau jauh, low-power bullet.
+        if (distance < 100)
         {
-            bulletPower = 3; // Peluru besar.
+            bulletPower = 3;
         }
-        else if (distance > 250)
+        else if (distance < 200)
         {
-            bulletPower = 1; // Peluru kecil.
+            bulletPower = 2;
         }
         else
         {
-            bulletPower = 2; // Peluru sedang.
+            bulletPower = 1;
+        }
+
+        // 2. Adjust based on relative energy:
+        //    - If we have a significant energy advantage over the enemy, be aggressive.
+        //    - If the enemy’s energy is low, conserve energy by reducing bullet power.
+        // Note: e.Energy represents the enemy bot's energy (provided by the API).
+        if (Energy > e.Energy + 30)
+        {
+            // If we are much stronger, try to finish the enemy quickly.
+            bulletPower = Math.Min(3, Energy);
+        }
+        else if (e.Energy < 15)
+        {
+            // If the enemy is low on energy, use minimal firepower to conserve energy.
+            bulletPower = 1;
         }
 
         SetFire(bulletPower);
@@ -117,10 +128,38 @@ public class Kaze : Bot
             Forward(100);
     }
 
+    // Manuver (dodge kalau kena bullet)
     public override void OnHitByBullet(HitByBulletEvent e)
     {
-        // Jika terkena peluru, putar 45 derajat ke kanan dan maju. (manuver)
         TurnRight(45);
         Forward(50);
+    }
+
+    // Hitung jarak bot ke musuh
+    private double DistanceTo(double targetX, double targetY)
+    {
+        double dx = targetX - X;
+        double dy = targetY - Y;
+        return Math.Sqrt(dx * dx + dy * dy);
+    }
+
+    // Helper: Calculate the bearing from current position to target.
+    private double BearingTo(double targetX, double targetY)
+    {
+        double dx = targetX - X;
+        double dy = targetY - Y;
+        double angle = Math.Atan2(dy, dx) * (180 / Math.PI);
+        double bearing = angle - Direction;
+        return NormalizeAngle(bearing);
+    }
+
+    // Normalize to [-180, 180] degrees.
+    private double NormalizeAngle(double angle)
+    {
+        while (angle > 180)
+            angle -= 360;
+        while (angle < -180)
+            angle += 360;
+        return angle;
     }
 }

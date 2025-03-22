@@ -1,0 +1,17 @@
+{
+    "name": "Kaze",
+    "version": "1.0",
+    "authors": [
+      "Nayaka Ghana Subrata"
+    ],
+    "description": "Kaze da~",
+    "homepage": "",
+    "countryCodes": [
+      "jp",
+      "kr",
+      "id"
+    ],
+    "platform": "JVM",
+    "programmingLang": "Java 11"
+  }
+  

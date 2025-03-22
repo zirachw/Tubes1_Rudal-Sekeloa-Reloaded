@@ -1,4 +1,4 @@
-// Module
+// Modules and APIs
 using System;
 using System.Drawing;
 using Robocode.TankRoyale.BotApi;
@@ -17,11 +17,11 @@ Kaze da~
 
 public class Kaze : Bot
 {
-    private readonly double margin = 50;           // Margin for shifting inward/outward.
-    private double nearWallDistance;               // Side length when moving near the wall.
-    private double innerDistance;                  // Side length when moving inside.
-    private bool nearWall = true;                  // Current mode: true = near wall, false = inner.
-    private int segmentCount = 0;                  // Counts segments in the current rotation.
+    private readonly double margin = 50;
+    private double nearWallDistance;
+    private double innerDistance;
+    private bool nearWall = true; // true = near wall, false = inner.
+    private int segmentCount = 0;
 
     static void Main(string[] args)
     {
@@ -49,25 +49,27 @@ public class Kaze : Bot
 
         while (IsRunning)
         {
+            // Note, pattern ini memungkinkan buat bot bergerak pseudo-random
+
             // Square pattern
             double currentDistance = nearWall ? nearWallDistance : innerDistance;
             Forward(currentDistance);
             TurnRight(90);
             segmentCount++;
 
-            // Full rotation (4 segments) completed.
+            // Full rotation (4 segments)
             if (segmentCount >= 4)
             {
                 if (nearWall)
                 {
-                    // Completed near-wall rotation: shift inward.
+                    // Kalau selesai 1 rotasi, masuk lebih dalam ke arena
                     TurnRight(90);
                     Forward(margin);
                     nearWall = false;
                 }
                 else
                 {
-                    // Completed inner rotation: reposition back near the wall.
+                    // Balik ke deket wall kalau udah selesai 1 rotasi lagi
                     TurnLeft(90);
                     Forward(margin);
                     nearWall = true;
@@ -84,9 +86,9 @@ public class Kaze : Bot
         double distance = DistanceTo(e.X, e.Y);
         double bulletPower = 1;
 
-        //    - Kalau deket banget (< 100 jarak), high-power bullet (type 3).
-        //    - Kalau cukup deket (< 200 jarak), use medium-power bullet (type 2).
-        //    - Kalau jauh, low-power bullet.
+        //    - Kalau deket banget (distance < 100), high-power bullet (type 3).
+        //    - Kalau cukup deket (distance < 200), medium-power bullet (type 2).
+        //    - Kalau jauh, low-power bullet (type 1).
         if (distance < 100)
         {
             bulletPower = 3;
@@ -100,18 +102,15 @@ public class Kaze : Bot
             bulletPower = 1;
         }
 
-        // 2. Adjust based on relative energy:
-        //    - If we have a significant energy advantage over the enemy, be aggressive.
-        //    - If the enemy’s energy is low, conserve energy by reducing bullet power.
-        // Note: e.Energy represents the enemy bot's energy (provided by the API).
+
+        // Kalau ada energy advantage, coba lebih agresif
         if (Energy > e.Energy + 30)
         {
-            // If we are much stronger, try to finish the enemy quickly.
             bulletPower = Math.Min(3, Energy);
         }
         else if (e.Energy < 15)
         {
-            // If the enemy is low on energy, use minimal firepower to conserve energy.
+            // Coba buat ks
             bulletPower = 1;
         }
 
@@ -121,6 +120,7 @@ public class Kaze : Bot
 
     public override void OnHitBot(HitBotEvent e)
     {
+        // Kalau kena bot, manuver, dan coba untuk cari musuhnya
         double bearing = BearingTo(e.X, e.Y);
         if (bearing > -90 && bearing < 90)
             Back(100);
@@ -143,7 +143,7 @@ public class Kaze : Bot
         return Math.Sqrt(dx * dx + dy * dy);
     }
 
-    // Helper: Calculate the bearing from current position to target.
+    // Menghitung rotasi bot biar bisa detect musuhnya (misal encounter)
     private double BearingTo(double targetX, double targetY)
     {
         double dx = targetX - X;
@@ -153,7 +153,7 @@ public class Kaze : Bot
         return NormalizeAngle(bearing);
     }
 
-    // Normalize to [-180, 180] degrees.
+    // Normalize angle to [-180, 180] degrees. (Bakal dipakai buat scan)
     private double NormalizeAngle(double angle)
     {
         while (angle > 180)

@@ -135,14 +135,6 @@ public class Kaze : Bot
         Forward(50);
     }
 
-    // Hitung jarak bot ke musuh
-    private double DistanceTo(double targetX, double targetY)
-    {
-        double dx = targetX - X;
-        double dy = targetY - Y;
-        return Math.Sqrt(dx * dx + dy * dy);
-    }
-
     // Menghitung rotasi bot biar bisa detect musuhnya (misal encounter)
     private double BearingTo(double targetX, double targetY)
     {

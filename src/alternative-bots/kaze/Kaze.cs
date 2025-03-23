@@ -134,14 +134,4 @@ public class Kaze : Bot
         TurnRight(45);
         Forward(50);
     }
-
-    // Normalize angle to [-180, 180] degrees. (Bakal dipakai buat scan)
-    private double NormalizeAngle(double angle)
-    {
-        while (angle > 180)
-            angle -= 360;
-        while (angle < -180)
-            angle += 360;
-        return angle;
-    }
 }

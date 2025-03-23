@@ -10,7 +10,7 @@ Kaze
 ------------------------------------------------------------------
 A bot that follows a square movement pattern along the arena walls.
 It rotates near the walls and shifts inward and outward as it completes rotations.
-In normal mode, it fires with different bullet types (small, medium, large) based on the enemy's distance and relative energy, improving its chances of winning
+In normal mode, it fires with different bullet types (small, medium, large) based on the enemy's distance and relative energy
 ------------------------------------------------------------------
 Kaze da~
 */

@@ -33,12 +33,12 @@ public class Kaze : Bot
     public override void Run()
     {
         // Set-up colors
-        BodyColor = Color.DarkCyan;
-        TurretColor = Color.DarkBlue;
-        RadarColor = Color.Cyan;
-        BulletColor = Color.White;
-        ScanColor = Color.DarkRed;
-
+        BodyColor = Color.FromArgb(255, 0, 139, 139);     // DarkCyan
+        TurretColor = Color.FromArgb(255, 0, 0, 139);     // DarkBlue
+        RadarColor = Color.FromArgb(255, 0, 255, 255);    // Cyan
+        BulletColor = Color.FromArgb(255, 255, 255, 255); // White
+        ScanColor = Color.FromArgb(255, 139, 0, 0);       // DarkRed
+        
         // Movement
         nearWallDistance = Math.Min(ArenaWidth, ArenaHeight) - margin;
         innerDistance = nearWallDistance - 2 * margin;

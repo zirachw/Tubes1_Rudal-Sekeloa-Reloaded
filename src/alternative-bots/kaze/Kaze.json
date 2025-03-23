@@ -2,7 +2,9 @@
     "name": "Kaze",
     "version": "6.9",
     "authors": [
-      "Nayaka Ghana Subrata"
+      "Nayaka Ghana Subrata",
+        "w1ntr",
+        "k4tou"
     ],
     "description": "Kaze da~",
     "homepage": "",

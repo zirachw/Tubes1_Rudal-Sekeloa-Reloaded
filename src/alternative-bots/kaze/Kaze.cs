@@ -52,7 +52,16 @@ public class Kaze : Bot
             // Note, pattern ini memungkinkan buat bot bergerak pseudo-random
 
             // Square pattern
-            double currentDistance = nearWall ? nearWallDistance : innerDistance;
+            double currentDistance;
+            if (nearWall)
+            {
+                currentDistance = nearWallDistance;
+            }
+            else
+            {
+                currentDistance = innerDistance;
+            }
+            
             Forward(currentDistance);
             TurnRight(90);
             segmentCount++;

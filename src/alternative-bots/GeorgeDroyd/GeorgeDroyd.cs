@@ -2,111 +2,156 @@ using System;
 using System.Drawing;
 using Robocode.TankRoyale.BotApi;
 using Robocode.TankRoyale.BotApi.Events;
+using Robocode.TankRoyale.BotApi.Util;
 
-public class GreedyTerminator : Bot
+// ------------------------------------------------------------------
+// WideScannerFollower with Greedy Targeting
+// ------------------------------------------------------------------
+// This bot now selects its target greedily: when multiple enemies are
+// scanned, it tracks the one with the lowest energy.
+// ------------------------------------------------------------------
+public class WideScannerFollower : Bot
 {
-    private double scannedX;
-    private double scannedY;
-    private double enemyEnergy = 100;
-    private int moveDirection = 1;
-    private int lastScanTurn;
-    
-    static void Main(string[] args) => new GreedyTerminator().Start();
+    private double trackingDistance = 200; // Desired distance from enemy
+    private double tolerance = 20;         // Tolerance range for distance adjustment
+    private ScannedBotEvent lastScannedBot = null;
 
-    GreedyTerminator() : base(BotInfo.FromFile("GeorgeDroyd.json")) { }
-    
+    private long currentTick = 0;
+    private double lastEnemyX = 0;
+    private double lastEnemyY = 0;
+    private long lastScanTick = 0;
+    private bool hasPreviousScan = false;
+
+    // The main method starts our bot.
+    static void Main()
+    {
+        new WideScannerFollower().Start();
+    }
+
+    WideScannerFollower() : base(BotInfo.FromFile("GeorgeDroyd.json")) { }
+
     public override void Run()
     {
-        BodyColor = Color.Gold;
-        TurretColor = Color.Black;
-        RadarColor = Color.Red;
+        // Set colors.
+        BodyColor   = Color.FromArgb(0x64, 0x64, 0xFF);  // blue
+        TurretColor = Color.FromArgb(0x32, 0x32, 0xC8);  // dark blue
+        RadarColor  = Color.FromArgb(0x00, 0x64, 0x64);  // dark cyan
+        BulletColor = Color.FromArgb(0xFF, 0xFF, 0x64);  // yellow
+        ScanColor   = Color.FromArgb(0x64, 0xC8, 0xFF);  // light blue
+
+        AdjustGunForBodyTurn = true;
+        AdjustRadarForBodyTurn = true;
+        AdjustRadarForGunTurn = true;
 
         while (IsRunning)
         {
-            AdvancedMovement();
-            RadarSweep();
+            currentTick++; 
+            SetTurnRadarRight(360);
+            SetTurnRadarLeft(360);
+            if (lastScannedBot == null)
+            {
+                SetTurnRadarRight(360);
+                SetTurnRadarLeft(360);
+            }
+            else
+            {
+                TrackTarget();
+            }
+            
+            Go();
         }
     }
 
-    private void AdvancedMovement()
+    private void TrackTarget()
     {
-        TurnLeft(45 * moveDirection);
-        while (IsRunning && IsAiming())
+        if (lastScannedBot == null) return;
+
+        double enemyX = lastScannedBot.X;
+        double enemyY = lastScannedBot.Y;
+        double angleToEnemy = Math.Atan2(enemyY - Y, enemyX - X) * 180 / Math.PI;
+        double distanceToEnemy = Math.Sqrt((enemyX - X) * (enemyX - X) + (enemyY - Y) * (enemyY - Y));
+
+        double gunTurn = NormalizeRelativeAngle(angleToEnemy - GunDirection);
+        SetTurnGunLeft(gunTurn);
+
+        double distanceError = distanceToEnemy - trackingDistance;
+        if (Math.Abs(distanceError) > tolerance)
         {
-            Go(); 
+            if (distanceError > 0)
+            {
+                SetForward(Math.Min(distanceError, 100));
+            }
+            else
+            {
+                SetBack(Math.Min(-distanceError, 100));
+            }
         }
-        
-        double distance = 150 + new Random().Next(50);
-        Forward(distance * moveDirection);
-        moveDirection *= -1;
+        else
+        {
+            double strafeAngle = NormalizeAngle(angleToEnemy + 90);
+            double turnToStrafe = NormalizeRelativeAngle(strafeAngle - Direction);
+            SetTurnRight(turnToStrafe);
+            SetForward(70);
+        }
     }
 
-    private void RadarSweep()
+    public override void OnScannedBot(ScannedBotEvent e)
     {
-        if (TurnNumber - lastScanTurn > 10)
-            TurnRadarRight(360);
+
+        if (lastScannedBot == null || e.ScannedBotId == lastScannedBot.ScannedBotId || e.Energy < lastScannedBot.Energy)
+        {
+            lastScannedBot = e;
+        }
+
+        double angleToEnemy = Math.Atan2(e.Y - Y, e.X - X) * 180 / Math.PI;
+        double radarTurn = NormalizeRelativeAngle(angleToEnemy - RadarDirection);
+        radarTurn *= 2;
+        SetTurnRadarLeft(radarTurn);
+
+        double gunTurn = NormalizeRelativeAngle(angleToEnemy - GunDirection);
+        SetTurnGunLeft(gunTurn);
+
+        Console.WriteLine($"Scanned bot: {e.ScannedBotId} at ({e.X}, {e.Y})");
+        double distanceToEnemy = Math.Sqrt((e.X - X) * (e.X - X) + (e.Y - Y) * (e.Y - Y));
+        if (Math.Abs(gunTurn) < 10 && distanceToEnemy < 300 && GunHeat == 0)
+        {
+            Fire(Math.Min(3.0, 400 / distanceToEnemy));
+        }
+
+        lastEnemyX = e.X;
+        lastEnemyY = e.Y;
+        lastScanTick = currentTick;
+        hasPreviousScan = true;
     }
 
-    public override void OnScannedBot(ScannedBotEvent evt)
+    public override void OnHitBot(HitBotEvent e)
     {
-        lastScanTurn = TurnNumber;
-        
-        double bearingRadians = ToRadians(GetBearingTo(evt.X, evt.Y));
-        double distance = GetDistanceTo(evt.X, evt.Y);
-        
-        scannedX = evt.X;
-        scannedY = evt.Y;
-        
-        TurnToFaceTarget(evt.X, evt.Y);
+        SetTurnRight(45);
     }
 
-    public override void OnHitByBullet(HitByBulletEvent evt)
+    public override void OnHitWall(HitWallEvent e)
     {
-        double evasionAngle = Direction + 90;
-        Evade(evasionAngle);
-        Back(50);
-    }
-
-    private void Evade(double bearing)
-    {
-        moveDirection *= -1;
-        Forward(150);
+        if(currentTick % 2 == 0)
+        {
+            SetTurnRight(90);
+        }
+        else
+        {
+            SetTurnLeft(90);
+        }
     }
 
     private double NormalizeAngle(double angle)
     {
-        angle %= (2 * Math.PI);
-        return angle > Math.PI ? angle - (2 * Math.PI) : angle;
-    }
-
-    private double ToRadians(double degrees) => degrees * Math.PI / 180;
-    private double ToDegrees(double radians) => radians * 180 / Math.PI;
-    
-    private double GetBearingTo(double x, double y)
-    {
-        double dx = x - X;
-        double dy = y - Y;
-        double angle = ToDegrees(Math.Atan2(dx, dy));
-        return NormalizeAngleDegrees(angle - Direction);
-    }
-    
-    private double GetDistanceTo(double x, double y)
-    {
-        double dx = x - X;
-        double dy = y - Y;
-        return Math.Sqrt(dx * dx + dy * dy);
-    }
-    
-    private double NormalizeAngleDegrees(double angle)
-    {
-        while (angle > 180) angle -= 360;
-        while (angle < -180) angle += 360;
+        while (angle >= 360) angle -= 360;
+        while (angle < 0) angle += 360;
         return angle;
     }
-    
-    private bool IsTurning() => TurnRemaining != 0;
-    private bool IsGunTurning() => GunTurnRemaining != 0;
-    private bool IsRadarTurning() => RadarTurnRemaining != 0;
-    
-    private bool IsAiming() => IsTurning() || IsGunTurning() || IsRadarTurning();
+
+    private double NormalizeRelativeAngle(double angle)
+    {
+        while (angle > 180) angle -= 360;
+        while (angle <= -180) angle += 360;
+        return angle;
+    }
 }

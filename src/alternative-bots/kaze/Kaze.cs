@@ -135,16 +135,6 @@ public class Kaze : Bot
         Forward(50);
     }
 
-    // Menghitung rotasi bot biar bisa detect musuhnya (misal encounter)
-    private double BearingTo(double targetX, double targetY)
-    {
-        double dx = targetX - X;
-        double dy = targetY - Y;
-        double angle = Math.Atan2(dy, dx) * (180 / Math.PI);
-        double bearing = angle - Direction;
-        return NormalizeAngle(bearing);
-    }
-
     // Normalize angle to [-180, 180] degrees. (Bakal dipakai buat scan)
     private double NormalizeAngle(double angle)
     {

@@ -1,18 +1,18 @@
 {
-    "name": "Kaze",
-    "version": "6.9",
-    "authors": [
-      "Nayaka Ghana Subrata",
-        "w1ntr",
-        "k4tou"
-    ],
-    "description": "Kaze da~",
-    "homepage": "",
-    "countryCodes": [
-      "jp",
-      "kr",
-      "id"
-    ],
-    "platform": ".Net 8.0",
-    "programmingLang": "C# 12.0"
-  }
+  "name": "Kaze",
+  "version": "9.11",
+  "authors": [
+    "Nayaka Ghana Subrata",
+      "w1ntr",
+      "k4tou"
+  ],
+  "description": "A bot that fires aggressively if an enemy is in the same path as its radar using energy and distance parameters, Kaze da~",
+  "homepage": "",
+  "countryCodes": [
+    "jp",
+    "kr",
+    "id"
+  ],
+  "platform": ".Net 8.0",
+  "programmingLang": "C# 10.0"
+}

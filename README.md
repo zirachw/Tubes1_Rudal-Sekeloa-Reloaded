@@ -54,7 +54,7 @@
  - dotnet version 8.0
  - Java
  
- ### ⬇️ Installing dependencies
+ ### ⬇️ Installing Dependencies
  
  #### 🪟 Windows
  1. Git
@@ -104,7 +104,7 @@
     ```
  
  ---
- ## 🛠️ How To Run
+ ## 🛠️ How To Setup
  
  ### **🪟 Windows**
  ### 🤖 Bots
@@ -193,6 +193,9 @@
     ```bash
     java -jar robocode-tankroyale-gui-0.30.0.jar
     ```
+ ---
+ ## ✨ How to Run
+ 
  ---
  ## 📱 Repository Structure
  ```

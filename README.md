@@ -203,6 +203,8 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 
 ---
 ## 📃 Miscellaneous
+<div align="center">
+
 | No | Points | Yes | No |
 | --- | --- | --- | --- |
 | 1 | The bot can be run on the Engine that the assistant has modified. | ✔️ | |
@@ -210,12 +212,18 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 | 3 | Make reports according to specifications. | ✔️ | |
 | 4 | Created a bonus video and uploaded it on Youtube. | ✔️ | |
 
+</div>
+
 <br/>
 <br/>
 <br/>
 <br/>
 
----
+
+<div align="center">
+Rudal Sekeloa Reloaded • © 2025 • 13523004-13523090-13523098
+</div>
+
 <!-- MARKDOWN LINKS & IMAGES -->
 [Csharp-url]: https://learn.microsoft.com/en-us/dotnet/csharp/
 [Java-url]: https://www.java.com/en/

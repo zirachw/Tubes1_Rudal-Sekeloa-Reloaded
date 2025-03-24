@@ -55,21 +55,55 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 - Java
 
 ### Installing dependencies
+
 #### On Windows, do this
-1. VSCode
+1. Git
+      ```bash
+   https://git-scm.com/download/win
+   ```
+2. VSCode
       ```bash
    winget install microsoft.visualstudiocode
    ```
+3. dotnet
+      ```bash
+   https://dotnet.microsoft.com/en-us/download
+   ```
+4. Java
 
+---
 ## How To Run
+
 ### **Windows**
+### Bots
 1. Open a terminal
-2. Clone the repository
+2. Clone the repository (if not already cloned)
       ```bash
    git clone https://github.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded.git
    ```
 3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory
-4. Run the following command to start the application in Qemu:
+4. Direct it to bot's root folder:
+   ```bash
+   cd src/alternative-bots/[botname]
+   ```
+   if you want to compile alternative bots, and:
+      ```bash
+   cd src/main-bots/[botname]
+   ```
+   if you want to compile main bot
+4. Compile the bot (bin obj making process):
+   ```bash
+   [botname].cmd
+   ```
+   
+### Game Engine
+1. Open a terminal
+2. Clone the repository (if not already cloned)
+      ```bash
+   git clone https://github.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded.git
+   ```
+3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory
+4. Run the following command to start the Game Engine
    ```bash
    java -jar robocode-tankroyale-gui-0.30.0.jar
    ```
@@ -78,6 +112,3 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 [Csharp-url]: https://learn.microsoft.com/en-us/dotnet/csharp/
 [Java-url]: https://www.java.com/en/
 [Gradle-url]: https://gradle.org/
-
-
-

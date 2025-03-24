@@ -188,7 +188,7 @@
  │ │ │ ├── Waves.csproj
  │ │ │ ├── Waves.json
  │ │ │ └── Waves.sh
- │ │ └── .gikeep
+ │ │ └── .gitkeep
  │ ├── 📂 main-bots/
  │ │ ├── 📂 RudalSekeloa/
  │ │ │ ├── RudalSekeloa.cmd
@@ -196,7 +196,7 @@
  │ │ │ ├── RudalSekeloa.csproj
  │ │ │ ├── RudalSekeloa.json
  │ │ │ └── RudalSekeloa.sh
- │ │ └── .gikeep
+ │ │ └── .gitkeep
  ├── robocode-tankroyale-gui-0.30.0.jar
  └── README.md
  ```

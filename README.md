@@ -146,6 +146,60 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
    java -jar robocode-tankroyale-gui-0.30.0.jar
    ```
 ---
+## 📱 Repository Structure
+```
+📂Tubes1_Rudal-Sekeloa-Reloaded/
+├── 📂docs/
+│ ├── .gitkeep
+│ └── Rudal Sekeloa Reloaded.pdf
+├── 📂src/
+│ ├── 📂alternative-bots/
+│ │ ├── 📂kaze/
+│ │ │ ├── Kaze.cmd
+│ │ │ ├── Kaze.cs
+│ │ │ ├── Kaze.csproj
+│ │ │ ├── Kaze.json
+│ │ │ └── Kaze.sh
+│ │ ├── 📂Sweepredict/
+│ │ │ ├── Sweepredict.cmd
+│ │ │ ├── Sweepredict.cs
+│ │ │ ├── Sweepredict.csproj
+│ │ │ ├── Sweepredict.json
+│ │ │ └── Sweepredict.sh
+│ │ └── 📂Waves/
+│ │ │ ├── Waves.cmd
+│ │ │ ├── Waves.cs
+│ │ │ ├── Waves.csproj
+│ │ │ ├── Waves.json
+│ │ │ └── Waves.sh
+│ │ └── .gikeep
+│ ├── 📂main-bots/
+│ │ ├── RudalSekeloa/
+│ │ │ ├── RudalSekeloa.cmd
+│ │ │ ├── RudalSekeloa.cs
+│ │ │ ├── RudalSekeloa.csproj
+│ │ │ ├── RudalSekeloa.json
+│ │ │ └── RudalSekeloa.sh
+│ │ └── .gikeep
+├── robocode-tankroyale-gui-0.30.0.jar
+└── README.md
+```
+
+---
+## 📃 Miscellaneous
+| No | Points | Yes | No |
+| --- | --- | --- | --- |
+| 1 | The bot can be run on the Engine that the assistant has modified. | ✔️ | |
+| 2 | Created 4 greedy solutions with different heuristics. | ✔️ | |
+| 3 | Make reports according to specifications. | ✔️ | |
+| 4 | Created a bonus video and uploaded it on Youtube. | ✔️ | |
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+---
 <!-- MARKDOWN LINKS & IMAGES -->
 [Csharp-url]: https://learn.microsoft.com/en-us/dotnet/csharp/
 [Java-url]: https://www.java.com/en/

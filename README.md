@@ -197,6 +197,10 @@
  ## ✨ How to Run
 ![tutorial](https://github.com/user-attachments/assets/e428faf9-d83b-4160-b81a-e57a6c5aa4fe)
 
+### Note: you can change the game rule in:
+       ```bash
+    battle->Setup Rules
+    ```
  ---
  ## 📱 Repository Structure
  ```

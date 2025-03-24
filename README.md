@@ -56,7 +56,7 @@
  
  ### Installing dependencies
  
- #### On Windows, do this
+ #### 🪟 Windows
  1. Git
        ```bash
     https://git-scm.com/download/win
@@ -72,6 +72,35 @@
  4. Java
        ```bash
     https://www.oracle.com/java/technologies/downloads/
+    ```
+ <br/>
+ <br/>
+ 
+ #### 🐧 Linux
+ 1. Git
+       ```bash
+    sudo apt-get install git
+    ```
+ 2. VSCode
+       ```bash
+    sudo apt install software-properties-common apt-transport-https wget
+    wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    sudo apt update
+    sudo apt install code
+    ```
+ 3. dotnet
+       ```bash
+    wget https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
+    rm packages-microsoft-prod.deb
+    sudo apt-get update
+    sudo apt-get install -y dotnet-sdk-8.0
+    ```
+ 4. Java
+       ```bash
+    sudo apt update
+    sudo apt install default-jdk
     ```
  
  ---

@@ -48,13 +48,13 @@
  
  ## 📦 Installation & Setup
  
- ### Requirements
+ ### ✅ Requirements
  - Git
  - Any IDE (recommended: VSCode)
  - dotnet version 8.0
  - Java
  
- ### Installing dependencies
+ ### ⬇️ Installing dependencies
  
  #### 🪟 Windows
  1. Git

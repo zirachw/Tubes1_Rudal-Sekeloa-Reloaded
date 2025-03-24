@@ -110,7 +110,7 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
    java -jar robocode-tankroyale-gui-0.30.0.jar
    ```
 ---
-### **Windows**
+### **Linux (UNIX system)**
 ### Bots
 1. Open a terminal
 2. Clone the repository (if not already cloned)

@@ -72,9 +72,10 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 4. Java
 
 ---
-## How To Run
+## 🛠️ How To Run
 
 ### **🪟 Windows**
+<br/>
 ### 🤖 Bots
 1. Open a terminal
 2. Clone the repository (if not already cloned)
@@ -118,7 +119,9 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
    java -jar robocode-tankroyale-gui-0.30.0.jar
    ```
 ---
+<br/>
 ### **🐧 Linux (UNIX system)**
+<br/>
 ### 🤖 Bots
 1. Open a terminal
 2. Clone the repository (if not already cloned)
@@ -162,6 +165,7 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
    java -jar robocode-tankroyale-gui-0.30.0.jar
    ```
 ---
+<br/>
 ## 📱 Repository Structure
 ```
 📂 Tubes1_Rudal-Sekeloa-Reloaded/
@@ -202,6 +206,7 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 ```
 
 ---
+<br/>
 ## 📃 Miscellaneous
 <div align="center">
 

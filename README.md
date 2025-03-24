@@ -195,7 +195,7 @@
     ```
  ---
  ## ✨ How to Run
- 
+ ![cligif](https://raw.githubusercontent.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded/main/other/tutorial.gif)
  ---
  ## 📱 Repository Structure
  ```

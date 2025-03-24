@@ -1,0 +1,10 @@
+{
+  "name": "RudalSekeloa",
+  "version": "17.55",
+  "authors": ["Razi", "Nayaka", "Adha"],
+  "description": "Offensive Mode: Using Tracking System to track the enemy's position and attack them. Defensive Mode: Using Waving Path to dogde enemy bullets.",
+  "homepage": "https://info-sekeloa.xyz",
+  "countryCodes": ["ng", "zw", "cn"],
+  "platform": ".Net 8.0",
+  "programmingLang": "C# 10.0"
+}

@@ -154,7 +154,7 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 │ └── Rudal Sekeloa Reloaded.pdf
 ├── 📂src/
 │ ├── 📂alternative-bots/
-│ │ ├── 📂kaze/
+│ │ ├── 📂Kaze/
 │ │ │ ├── Kaze.cmd
 │ │ │ ├── Kaze.cs
 │ │ │ ├── Kaze.csproj

@@ -110,6 +110,42 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
    java -jar robocode-tankroyale-gui-0.30.0.jar
    ```
 ---
+### **Windows**
+### Bots
+1. Open a terminal
+2. Clone the repository (if not already cloned)
+      ```bash
+   git clone https://github.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded.git
+   ```
+3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory
+4. Direct it to bot's root folder:
+   ```bash
+   cd src/alternative-bots/[botname]
+   ```
+   if you want to compile alternative bots, or
+      ```bash
+   cd src/main-bots/[botname]
+   ```
+   if you want to compile main bot
+4. Compile the bot (bin obj making process):
+   ```bash
+   ./[botname].sh
+   ```
+   
+### Game Engine
+(See the bots section first for the prerequisite)
+
+1. Open a terminal
+2. Clone the repository (if not already cloned)
+      ```bash
+   git clone https://github.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded.git
+   ```
+3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory
+4. Run the following command to start the Game Engine
+   ```bash
+   java -jar robocode-tankroyale-gui-0.30.0.jar
+   ```
+---
 <!-- MARKDOWN LINKS & IMAGES -->
 [Csharp-url]: https://learn.microsoft.com/en-us/dotnet/csharp/
 [Java-url]: https://www.java.com/en/

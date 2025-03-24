@@ -1,4 +1,4 @@
-# Rudal Sekeloa- - Reloaded 💀
+# Rudal Sekeloa - Reloaded 💀
 A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `Java` game engine that implement various Greedy algorithms in [**Tank Royale Robocode**](https://robocode-dev.github.io/tank-royale/) with the goal of winning the game. 
 
 ---
@@ -81,8 +81,11 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
       ```bash
    git clone https://github.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded.git
    ```
-3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory
-4. Direct it to bot's root folder:
+3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory:
+      ```bash
+   cd Tubes1_Rudal-Sekeloa-Reloaded
+   ```
+5. Direct it to bot's root folder:
    ```bash
    cd src/alternative-bots/[botname]
    ```
@@ -104,7 +107,10 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
       ```bash
    git clone https://github.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded.git
    ```
-3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory
+3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory:
+      ```bash
+   cd Tubes1_Rudal-Sekeloa-Reloaded
+   ```
 4. Run the following command to start the Game Engine
    ```bash
    java -jar robocode-tankroyale-gui-0.30.0.jar
@@ -117,7 +123,10 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
       ```bash
    git clone https://github.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded.git
    ```
-3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory
+3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory:
+      ```bash
+   cd Tubes1_Rudal-Sekeloa-Reloaded
+   ```
 4. Direct it to bot's root folder:
    ```bash
    cd src/alternative-bots/[botname]
@@ -140,7 +149,10 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
       ```bash
    git clone https://github.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded.git
    ```
-3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory
+3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory:
+      ```bash
+   cd Tubes1_Rudal-Sekeloa-Reloaded
+   ```
 4. Run the following command to start the Game Engine
    ```bash
    java -jar robocode-tankroyale-gui-0.30.0.jar
@@ -148,33 +160,33 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 ---
 ## 📱 Repository Structure
 ```
-📂Tubes1_Rudal-Sekeloa-Reloaded/
-├── 📂docs/
+📂 Tubes1_Rudal-Sekeloa-Reloaded/
+├── 📂 docs/
 │ ├── .gitkeep
 │ └── Rudal Sekeloa Reloaded.pdf
-├── 📂src/
-│ ├── 📂alternative-bots/
-│ │ ├── 📂Kaze/
+├── 📂 src/
+│ ├── 📂 alternative-bots/
+│ │ ├── 📂 Kaze/
 │ │ │ ├── Kaze.cmd
 │ │ │ ├── Kaze.cs
 │ │ │ ├── Kaze.csproj
 │ │ │ ├── Kaze.json
 │ │ │ └── Kaze.sh
-│ │ ├── 📂Sweepredict/
+│ │ ├── 📂 Sweepredict/
 │ │ │ ├── Sweepredict.cmd
 │ │ │ ├── Sweepredict.cs
 │ │ │ ├── Sweepredict.csproj
 │ │ │ ├── Sweepredict.json
 │ │ │ └── Sweepredict.sh
-│ │ └── 📂Waves/
+│ │ ├── 📂 Waves/
 │ │ │ ├── Waves.cmd
 │ │ │ ├── Waves.cs
 │ │ │ ├── Waves.csproj
 │ │ │ ├── Waves.json
 │ │ │ └── Waves.sh
 │ │ └── .gikeep
-│ ├── 📂main-bots/
-│ │ ├── RudalSekeloa/
+│ ├── 📂 main-bots/
+│ │ ├── 📂 RudalSekeloa/
 │ │ │ ├── RudalSekeloa.cmd
 │ │ │ ├── RudalSekeloa.cs
 │ │ │ ├── RudalSekeloa.csproj

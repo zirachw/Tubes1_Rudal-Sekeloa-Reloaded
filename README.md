@@ -104,7 +104,7 @@
     ```
  
  ---
- ## How To Run
+ ## 🛠️ How To Run
  
  ### **🪟 Windows**
  ### 🤖 Bots

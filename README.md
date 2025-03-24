@@ -61,6 +61,18 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
    winget install microsoft.visualstudiocode
    ```
 
+## How To Run
+### **Windows**
+1. Open a terminal
+2. Clone the repository
+      ```bash
+   git clone https://github.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded.git
+   ```
+3. Make Tubes1_Rudal-Sekeloa-Reloaded as root directory
+4. Run the following command to start the application in Qemu:
+   ```bash
+   java -jar robocode-tankroyale-gui-0.30.0.jar
+   ```
 ---
 <!-- MARKDOWN LINKS & IMAGES -->
 [Csharp-url]: https://learn.microsoft.com/en-us/dotnet/csharp/

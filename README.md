@@ -1,4 +1,4 @@
-# 💣 Robocode Tank Royale Bot
+# Rudal Sekeloa- - Reloaded 💀
 A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `Java` game engine that implement various Greedy algorithms in [**Tank Royale Robocode**](https://robocode-dev.github.io/tank-royale/) with the goal of winning the game. 
 
 ---
@@ -46,6 +46,22 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 
 ---
 
+## 📦 Installation & Setup
+
+### Requirements
+- Git
+- Any IDE (recommended: VSCode)
+- dotnet version 8.0
+- Java
+
+### Installing dependencies
+#### On Windows, do this
+1. VSCode
+      ```bash
+   winget install microsoft.visualstudiocode
+   ```
+
+---
 <!-- MARKDOWN LINKS & IMAGES -->
 [Csharp-url]: https://learn.microsoft.com/en-us/dotnet/csharp/
 [Java-url]: https://www.java.com/en/

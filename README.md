@@ -2,8 +2,7 @@
  A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `Java` game engine that implement various Greedy algorithms in [**Tank Royale Robocode**](https://robocode-dev.github.io/tank-royale/) with the goal of winning the game. 
  
  ---
-https://github.com/user-attachments/assets/043e8544-6629-4c10-873e-370f84fb5d8a
-
+![WhatsApp Video 2025-03-24 at 14 31 17 (1)](https://github.com/user-attachments/assets/1f3eaf71-3863-4f30-b713-1d17479bc32a)
 
  <!-- CONTRIBUTOR -->
  <div align="center" id="contributor">

@@ -251,8 +251,6 @@
  <br/>
  <br/>
  
- ---
- 
  <div align="center">
  Rudal Sekeloa Reloaded • © 2025 • 13523004-13523090-13523098
  </div>

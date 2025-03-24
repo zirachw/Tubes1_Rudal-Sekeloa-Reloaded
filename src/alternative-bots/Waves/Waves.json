@@ -1,0 +1,10 @@
+{
+  "name": "Waves",
+  "version": "9.11",
+  "authors": ["Razi Rachman W", "rzi"],
+  "description": "A bot that drives forward and backward, and fires a bullet",
+  "homepage": "yasir252.com",
+  "countryCodes": ["cn", "tw"],
+  "platform": ".Net 8.0",
+  "programmingLang": "C# 10.0"
+}

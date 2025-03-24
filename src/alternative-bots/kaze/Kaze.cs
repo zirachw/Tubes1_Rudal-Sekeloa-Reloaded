@@ -93,7 +93,6 @@ public class Kaze : Bot
     public override void OnScannedBot(ScannedBotEvent e)
     {
         double distance = DistanceTo(e.X, e.Y);
-        double bulletPower = 1;
 
         //    - Kalau deket banget (distance < 100), high-power bullet (type 3).
         //    - Kalau cukup deket (distance < 200), medium-power bullet (type 2).

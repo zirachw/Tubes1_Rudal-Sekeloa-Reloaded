@@ -226,7 +226,7 @@
  │ │ │ ├── Waves.json
  │ │ │ └── Waves.sh
  │ │ └── .gitkeep
- │ ├── 📂 main-bots/
+ │ └── 📂 main-bots/
  │ │ ├── 📂 RudalSekeloa/
  │ │ │ ├── RudalSekeloa.cmd
  │ │ │ ├── RudalSekeloa.cs

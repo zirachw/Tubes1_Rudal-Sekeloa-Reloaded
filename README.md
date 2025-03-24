@@ -76,6 +76,7 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 
 ### **🪟 Windows**
 <br/>
+<br/>
 ### 🤖 Bots
 1. Open a terminal
 2. Clone the repository (if not already cloned)
@@ -120,7 +121,9 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
    ```
 ---
 <br/>
+<br/>
 ### **🐧 Linux (UNIX system)**
+<br/>
 <br/>
 ### 🤖 Bots
 1. Open a terminal
@@ -166,6 +169,7 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
    ```
 ---
 <br/>
+<br/>
 ## 📱 Repository Structure
 ```
 📂 Tubes1_Rudal-Sekeloa-Reloaded/
@@ -207,9 +211,9 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
 
 ---
 <br/>
+<br/>
 ## 📃 Miscellaneous
 <div align="center">
-
 | No | Points | Yes | No |
 | --- | --- | --- | --- |
 | 1 | The bot can be run on the Engine that the assistant has modified. | ✔️ | |

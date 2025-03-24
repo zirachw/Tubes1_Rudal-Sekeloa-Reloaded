@@ -1,4 +1,4 @@
-# Rudal Sekeloa - Reloaded 💀
+![tutorial](https://github.com/user-attachments/assets/8831afde-1495-425b-b783-9db3a101d59d)# Rudal Sekeloa - Reloaded 💀
  A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `Java` game engine that implement various Greedy algorithms in [**Tank Royale Robocode**](https://robocode-dev.github.io/tank-royale/) with the goal of winning the game. 
  
  ---
@@ -195,7 +195,8 @@
     ```
  ---
  ## ✨ How to Run
- ![cligif](https://raw.githubusercontent.com/zirachw/Tubes1_Rudal-Sekeloa-Reloaded/main/other/tutorial.gif)
+![tutorial](https://github.com/user-attachments/assets/e428faf9-d83b-4160-b81a-e57a6c5aa4fe)
+
  ---
  ## 📱 Repository Structure
  ```

@@ -70,6 +70,9 @@
     https://dotnet.microsoft.com/en-us/download
     ```
  4. Java
+       ```bash
+    https://www.oracle.com/java/technologies/downloads/
+    ```
  
  ---
  ## How To Run

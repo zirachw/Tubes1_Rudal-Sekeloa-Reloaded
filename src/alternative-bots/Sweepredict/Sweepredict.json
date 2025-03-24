@@ -1,0 +1,10 @@
+{
+  "name": "Sweepredict",
+  "version": "4.20",
+  "authors": ["Adha Rid1", "UcokGallagher"],
+  "description": "A bot with padded square path avoiding wall, while sweeping all arena dan predict the gun angle to shoot the enemy",
+  "homepage": "bagas123.com",
+  "countryCodes": ["ng", "zw"],
+  "platform": ".Net 8.0",
+  "programmingLang": "C# 10.0"
+}

@@ -86,7 +86,7 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
    ```bash
    cd src/alternative-bots/[botname]
    ```
-   if you want to compile alternative bots, and:
+   if you want to compile alternative bots, or
       ```bash
    cd src/main-bots/[botname]
    ```
@@ -97,6 +97,8 @@ A repository contains 4 Bots (1 main and 3 alternatives) in `C# (.net)` using `J
    ```
    
 ### Game Engine
+(See the bots section first for the prerequisite)
+
 1. Open a terminal
 2. Clone the repository (if not already cloned)
       ```bash
